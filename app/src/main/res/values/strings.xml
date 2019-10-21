@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">gitHubApiFilterCourotines</string>
+    <string name="menu_filter_text_filter">Filtrar</string>
+    <string name="menu_filter_text_name">Por Nome</string>
+    <string name="menu_filter_text_star">Por Estrelas</string>
 </resources>

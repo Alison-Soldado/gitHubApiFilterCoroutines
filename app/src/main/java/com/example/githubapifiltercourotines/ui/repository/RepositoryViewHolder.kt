@@ -15,7 +15,6 @@ class RepositoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var textViewBranch: AppCompatTextView
     var textViewUsername: AppCompatTextView
 
-
     init {
         this.textViewName = view.findViewById(R.id.item_repository_text_name_item)
         this.textViewDescription = view.findViewById(R.id.item_repository_text_description_item)

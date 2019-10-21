@@ -14,9 +14,11 @@ class RepositoryViewModel(private val repository: RepositoryDataSource) : ViewMo
 
     private val viewModelJob = SupervisorJob()
     private val viewModeScope = CoroutineScope(Main + viewModelJob)
+
     private val _repositories: MutableLiveData<MutableList<RepositoryVO>> = MutableLiveData()
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     private val _error: MutableLiveData<Throwable> = MutableLiveData()
+
     val repositories: LiveData<MutableList<RepositoryVO>> get() = _repositories
     val loading: LiveData<Boolean> get() = _loading
     val error: LiveData<Throwable> get() = _error

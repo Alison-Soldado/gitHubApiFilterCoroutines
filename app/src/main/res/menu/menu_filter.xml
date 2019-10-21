@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/menu_filter"
+            android:orderInCategory="1"
+            android:title="@string/menu_filter_text_filter">
+
+            <menu>
+                <item
+                    android:id="@+id/menu_filter_name"
+                    android:orderInCategory="2"
+                    android:title="@string/menu_filter_text_name"/>
+
+                <item
+                    android:id="@+id/menu_filter_star"
+                    android:orderInCategory="3"
+                    android:title="@string/menu_filter_text_star"/>
+            </menu>
+        </item>
+    </group>
+</menu>

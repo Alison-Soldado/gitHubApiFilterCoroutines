@@ -3,6 +3,8 @@ package com.example.githubapifiltercourotines.ui.repository
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -17,6 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class RepositoryActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<RepositoryViewModel>()
+    private lateinit var adapter: RepositoryAdapter
     private val recyclerViewRepositories: RecyclerView by viewProvider(R.id.activity_repository_recycler_repositories)
     private val progressBarLoading: ProgressBar by viewProvider(R.id.activity_repository_progress)
 
@@ -45,7 +48,8 @@ class RepositoryActivity : AppCompatActivity() {
         })
 
         viewModel.repositories.observe(this, Observer { repositories ->
-            recyclerViewRepositories.adapter = RepositoryAdapter(repositories)
+            adapter = RepositoryAdapter(repositories)
+            recyclerViewRepositories.adapter = adapter
         })
 
         viewModel.error.observe(this, Observer {
@@ -56,5 +60,24 @@ class RepositoryActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         viewModel.getRepository()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_filter, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_filter_name -> {
+                adapter.filterForName()
+                true
+            }
+            R.id.menu_filter_star -> {
+                adapter.filterForStar()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
