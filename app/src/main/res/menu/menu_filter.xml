@@ -17,6 +17,16 @@
                     android:id="@+id/menu_filter_star"
                     android:orderInCategory="3"
                     android:title="@string/menu_filter_text_star"/>
+
+                <item
+                    android:id="@+id/menu_filter_star_count"
+                    android:orderInCategory="4"
+                    android:title="@string/menu_filter_star_count"/>
+
+                <item
+                    android:id="@+id/menu_filter_addition"
+                    android:orderInCategory="5"
+                    android:title="@string/menu_filter_text_addition"/>
             </menu>
         </item>
     </group>

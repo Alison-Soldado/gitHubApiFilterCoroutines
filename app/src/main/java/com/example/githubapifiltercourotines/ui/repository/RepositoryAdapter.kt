@@ -1,13 +1,12 @@
 package com.example.githubapifiltercourotines.ui.repository
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapifiltercourotines.R
 import com.example.githubapifiltercourotines.domain.model.RepositoryVO
 
-class RepositoryAdapter(private var repositories: MutableList<RepositoryVO>) :
+class RepositoryAdapter(var repositories: MutableList<RepositoryVO>) :
     RecyclerView.Adapter<RepositoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
@@ -24,27 +23,4 @@ class RepositoryAdapter(private var repositories: MutableList<RepositoryVO>) :
     }
 
     override fun getItemCount() = repositories.size
-
-    fun filterForName() {
-        repositories.sortBy { it.name.toUpperCase() }
-        notifyDataSetChanged()
-    }
-
-    fun filterForStar() {
-        repositories.sortBy { it.stargazers_count }
-        notifyDataSetChanged()
-    }
-
-    fun filterForStarCount() {
-        repositories
-            .asSequence()
-            .filter { it.stargazers_count > 100 }
-            .map { it.name.plus(" Soldado") }
-            .toList()
-        notifyDataSetChanged()
-    }
-
-    fun filterAddition() {}
-
-    fun filterMultiple() {}
 }

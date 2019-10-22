@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapifiltercourotines.R
 import com.example.githubapifiltercourotines.delegate.viewProvider
+import com.example.githubapifiltercourotines.extension.toast
 import com.example.githubapifiltercourotines.util.ItemOffsetDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -53,7 +54,7 @@ class RepositoryActivity : AppCompatActivity() {
         })
 
         viewModel.error.observe(this, Observer {
-            Log.d("error", "Message: ${it.message}")
+            toast(it.message)
         })
     }
 
@@ -75,6 +76,14 @@ class RepositoryActivity : AppCompatActivity() {
             }
             R.id.menu_filter_star -> {
                 adapter.filterForStar()
+                true
+            }
+            R.id.menu_filter_star_count -> {
+                adapter.filterForStarCount()
+                true
+            }
+            R.id.menu_filter_addition -> {
+                adapter.filterAddition()
                 true
             }
             else -> super.onOptionsItemSelected(item)
