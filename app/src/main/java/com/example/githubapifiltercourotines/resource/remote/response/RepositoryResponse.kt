@@ -2,9 +2,9 @@ package com.example.githubapifiltercourotines.resource.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Result (@SerializedName("items") val items: ArrayList<Items>)
+class Result (@SerializedName("items") val items: ArrayList<Items>)
 
-data class Items(
+class Items(
     @SerializedName("id") val id: Long,
     @SerializedName("name") val name: String,
     @SerializedName("full_name") val full_name: String,
@@ -16,7 +16,7 @@ data class Items(
     @SerializedName("open_issues") val open_issues: Long
 )
 
-data class Owner (
+class Owner (
     @SerializedName("id") val id: Long,
     @SerializedName("login") val login: String,
     @SerializedName("avatar_url") val avatar_url: String,
