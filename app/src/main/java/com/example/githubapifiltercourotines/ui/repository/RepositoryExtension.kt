@@ -50,15 +50,15 @@ fun RepositoryAdapter.filterMultiple() {
 }
 
 fun RepositoryAdapter.filterFind() {
-    repositories.find { it.full_name == "E" }
+    repositories.find { it.name == "Soldado" }
 }
 
 fun RepositoryAdapter.filterAny() {
-    repositories.any { it.name == "Alison" }
+    repositories.any { it.name == "Soldado" }
 }
 
 fun RepositoryAdapter.filterAll() {
-    repositories.all { it.name == "Alison" }
+    repositories.all { it.name == "Soldado" }
 }
 
 fun RepositoryAdapter.filterIncrement() {

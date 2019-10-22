@@ -1,19 +1,17 @@
 package com.example.githubapifiltercourotines.ui.repository
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapifiltercourotines.R
 import com.example.githubapifiltercourotines.delegate.viewProvider
 import com.example.githubapifiltercourotines.extension.toast
+import com.example.githubapifiltercourotines.extension.visibilityLoading
 import com.example.githubapifiltercourotines.util.ItemOffsetDecoration
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -40,22 +38,14 @@ class RepositoryActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        viewModel.loading.observe(this, Observer { loading ->
-            if (loading) {
-                progressBarLoading.visibility = View.VISIBLE
-            } else {
-                progressBarLoading.visibility = View.GONE
-            }
-        })
+        viewModel.loading.observe(this, Observer { loading -> progressBarLoading.visibilityLoading(loading) })
 
         viewModel.repositories.observe(this, Observer { repositories ->
             adapter = RepositoryAdapter(repositories)
             recyclerViewRepositories.adapter = adapter
         })
 
-        viewModel.error.observe(this, Observer {
-            toast(it.message)
-        })
+        viewModel.error.observe(this, Observer { toast(it.message) })
     }
 
     override fun onResume() {
