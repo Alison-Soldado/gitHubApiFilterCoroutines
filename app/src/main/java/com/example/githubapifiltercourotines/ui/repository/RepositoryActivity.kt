@@ -76,6 +76,10 @@ class RepositoryActivity : AppCompatActivity() {
                 adapter.filterAddition()
                 true
             }
+            R.id.menu_filter_multiple -> {
+                adapter.filterMultiple()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

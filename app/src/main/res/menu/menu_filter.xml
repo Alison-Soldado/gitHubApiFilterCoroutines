@@ -27,6 +27,11 @@
                     android:id="@+id/menu_filter_addition"
                     android:orderInCategory="5"
                     android:title="@string/menu_filter_text_addition"/>
+
+                <item
+                    android:id="@+id/menu_filter_multiple"
+                    android:orderInCategory="6"
+                    android:title="@string/menu_filter_multiple"/>
             </menu>
         </item>
     </group>

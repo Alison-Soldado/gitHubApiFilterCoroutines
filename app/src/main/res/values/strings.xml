@@ -5,4 +5,5 @@
     <string name="menu_filter_text_star">Por Estrelas</string>
     <string name="menu_filter_star_count">Adiciona Soldado</string>
     <string name="menu_filter_text_addition">Adicionar</string>
+    <string name="menu_filter_multiple">Multiplicar</string>
 </resources>

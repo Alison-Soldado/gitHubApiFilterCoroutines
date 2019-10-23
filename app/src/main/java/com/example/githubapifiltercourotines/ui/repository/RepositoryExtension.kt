@@ -27,7 +27,7 @@ fun RepositoryAdapter.filterAddition() {
     val listFilter = repositories
         .asSequence()
         .filter { it.forks_count > 200 }
-        .map { it.forks_count + 2 }
+        .map { it.forks_count + it.stargazers_count }
         .toList()
 
     for (i in listFilter.indices) {
@@ -44,7 +44,7 @@ fun RepositoryAdapter.filterMultiple() {
         .toList()
 
     for (i in listFilter.indices) {
-        repositories[i].open_issues = listFilter[i]
+        repositories[i].stargazers_count = listFilter[i]
     }
     notifyDataSetChanged()
 }
