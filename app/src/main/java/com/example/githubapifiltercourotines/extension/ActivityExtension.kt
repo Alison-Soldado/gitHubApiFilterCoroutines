@@ -6,7 +6,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 fun Activity.toast(message: String?, duration: Int = Toast.LENGTH_SHORT) {
-    Toast.makeText(this, message ?: "Something wrong", duration).show()
+    Toast.makeText(this, message ?: "Something went wrong", duration).show()
 }
 
 fun ProgressBar.visibilityLoading(visibility: Boolean) {
