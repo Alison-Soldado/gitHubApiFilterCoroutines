@@ -23,17 +23,15 @@ class RepositoryUnitTest : KoinTest {
     }
 
     @Before
-    fun setup() {
-        startKoin {  }
-    }
+    fun setup() {}
 
     @After
     fun shutdown() {
-        stopKoin()
     }
+
     @Test
     fun givenWhenThen() {
-        repositoryViewModel.getRepository()
+
     }
 
 }
